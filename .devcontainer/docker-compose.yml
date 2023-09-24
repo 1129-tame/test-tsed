@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  tsed:
+    user: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/tsed:delegated
+      - node_modules:/tsed/node_modules
+    ports:
+      # api
+      - 8084:8083
+      # admin
+      - 3001:3000
+    working_dir: /tsed
+    tty: true
+  mongotest:
+    image: 'mongo:4.4'
+    ports:
+      - '27018:27017'
+    command:
+      - --replSet
+      - mongo-rs
+    volumes:
+      - mongo_data:/data/db
+  redistest:
+    image: redis:6.0.10
+    volumes:
+      - redis-data:/data
+volumes:
+  node_modules:
+  mongo_data:
+  redis-data:

@@ -1,0 +1,31 @@
+{
+    "name": "test-tsed",
+    "dockerComposeFile": ["./docker-compose.yml"],
+    "service": "tsed",
+    "workspaceFolder": "/tsed",
+    "postCreateCommand": "/bin/bash .devcontainer/init-mongo.sh",
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+  
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "msjsdiag.debugger-for-chrome",
+      "firefox-devtools.vscode-firefox-debug",
+      "editorconfig.editorconfig",
+      "esbenp.prettier-vscode",
+      "shinnn.stylelint",
+      "hex-ci.stylelint-plus",
+      "cweijan.vscode-redis-client",
+      "mongodb.mongodb-vscode",
+      "ZixuanChen.vitest-explorer",
+    ],
+  
+    // "postCreateCommand": "yarn",
+  
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "node"
+  }
+  
